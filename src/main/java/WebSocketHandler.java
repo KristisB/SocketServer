@@ -126,8 +126,8 @@ public class WebSocketHandler {
     private void sendMoveData(MsgData msg) throws IOException {
         Session s1 = sessionsHashMap.get(msg.msgHeader.getUser().getUserId());
         s1.getRemote().sendString(msgHandler.jsonResponse(msg));
-//        Session s2 = sessionsHashMap.get(msg.msgHeader.getAddress());
-//        s1.getRemote().sendString(msgHandler.jsonResponse(msg));
+        Session s2 = sessionsHashMap.get(msg.msgHeader.getAddress());
+        s2.getRemote().sendString(msgHandler.jsonResponse(msg));
     }
 
     private void sendRegistrationMsg(MsgData msg, Session session) throws IOException {
